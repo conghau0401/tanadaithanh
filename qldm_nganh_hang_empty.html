@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Cấu hình SLA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="/images/Logo TADT_white.png" alt="Tân á Đại Thành">
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <svg class="menu-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 6h14M3 12h14M3 18h14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="close-icon d-none" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 5L5 15M5 5l10 10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="3" y="3" width="6" height="6" fill="currentColor"/>
+                                <rect x="11" y="3" width="6" height="6" fill="currentColor"/>
+                                <rect x="3" y="11" width="6" height="6" fill="currentColor"/>
+                                <rect x="11" y="11" width="6" height="6" fill="currentColor"/>
+                            </svg>
+                            <span class="nav-text">Tổng quan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="6" r="3" fill="currentColor"/>
+                                <path d="M5 18v-1a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1" fill="currentColor"/>
+                            </svg>
+                            <span class="nav-text">Quản lý danh mục</span>
+                            <svg class="nav-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.19486 5.40705C8.52237 4.96235 9.14837 4.86736 9.59307 5.19488C9.93847 5.44927 10.2668 5.70372 10.5528 5.92689C11.1236 6.3724 11.8882 6.98573 12.6556 7.65208C13.4181 8.31412 14.2064 9.04815 14.8119 9.73344C15.1136 10.0749 15.3911 10.4279 15.5986 10.7721C15.7895 11.0888 16 11.524 16 12.0001C16 12.4762 15.7895 12.9115 15.5986 13.2282C15.3911 13.5724 15.1136 13.9253 14.8119 14.2668C14.2064 14.9521 13.4181 15.6861 12.6556 16.3482C11.8882 17.0145 11.1236 17.6278 10.5528 18.0734C10.2668 18.2965 9.93847 18.551 9.59307 18.8054C9.14837 19.1329 8.52237 19.0379 8.19486 18.5932C8.0632 18.4144 7.99983 18.2064 8.00001 18.0002L8.00001 12.0001L8 6.00007C7.99983 5.79387 8.0632 5.58581 8.19486 5.40705Z" fill="#1D2129"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="3" y="4" width="14" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M7 2v4M13 2v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="nav-text">Danh sách ticket</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM10 6v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="nav-text">Địa bàn bảo hành</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M14.31 8l-4.31 4.31L7.69 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="nav-text">Tra cứu bảo hành</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="2" y="3" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 21v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span class="nav-text">Định mức đổi trả</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="3" y="3" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M9 9h6M9 13h6M7 9h.01M7 13h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="nav-text">Cấu hình SLA</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="2" y="6" width="16" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M6 2v4M14 2v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="nav-text">Ticket hệ thống cũ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="6" r="3" fill="currentColor"/>
+                                <path d="M5 18v-1a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1" fill="currentColor"/>
+                            </svg>
+                            <span class="nav-text">Quản lý người dùng</span>
+                            <svg class="nav-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.19486 5.40705C8.52237 4.96235 9.14837 4.86736 9.59307 5.19488C9.93847 5.44927 10.2668 5.70372 10.5528 5.92689C11.1236 6.3724 11.8882 6.98573 12.6556 7.65208C13.4181 8.31412 14.2064 9.04815 14.8119 9.73344C15.1136 10.0749 15.3911 10.4279 15.5986 10.7721C15.7895 11.0888 16 11.524 16 12.0001C16 12.4762 15.7895 12.9115 15.5986 13.2282C15.3911 13.5724 15.1136 13.9253 14.8119 14.2668C14.2064 14.9521 13.4181 15.6861 12.6556 16.3482C11.8882 17.0145 11.1236 17.6278 10.5528 18.0734C10.2668 18.2965 9.93847 18.551 9.59307 18.8054C9.14837 19.1329 8.52237 19.0379 8.19486 18.5932C8.0632 18.4144 7.99983 18.2064 8.00001 18.0002L8.00001 12.0001L8 6.00007C7.99983 5.79387 8.0632 5.58581 8.19486 5.40705Z" fill="#1D2129"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <img src="/images/Avatar.png" alt="User Avatar">
+                    </div>
+                    <span class="user-name">Hoang Ngoc Huong</span>
+                </div>
+                <a href="#" class="logout-link">
+                    <svg class="logout-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 17.625C14.9264 19.4769 13.3831 21.0494 11.3156 20.9988C10.8346 20.987 10.2401 20.8194 9.05112 20.484C6.18961 19.6768 3.70555 18.3203 3.10956 15.2815C3 14.723 3 14.0944 3 12.8373L3 11.1627C3 9.90561 3 9.27705 3.10956 8.71846C3.70555 5.67965 6.18961 4.32316 9.05112 3.51603C10.2401 3.18064 10.8346 3.01295 11.3156 3.00119C13.3831 2.95061 14.9264 4.52307 15 6.37501" stroke="#FFF" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M21 12H10M21 12C21 11.2998 19.0057 9.99153 18.5 9.5M21 12C21 12.7002 19.0057 14.0085 18.5 14.5" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logout-text">Đăng xuất</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <!-- Header -->
+            <div class="content-header">
+                <div class="header-left">
+                    <button class="back-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.99988 11.9998L19.9999 11.9998" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.99972 17C8.99972 17 3.99977 13.3176 3.99976 12C3.99974 10.6824 8.99976 7 8.99976 7" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <h1 class="page-title">Ngành hàng</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-container">
+                        <form action="">
+                            <input type="text" class="form-control search-input" placeholder="Tìm kiếm">
+                            <button type="submit">
+                                <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11C21 13.4013 20.1536 15.6049 18.7429 17.3287L23 21.5858L21.5858 23L17.3287 18.7429C15.6049 20.1536 13.4013 21 11 21C5.47715 21 1 16.5228 1 11ZM11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3Z" fill="#4E5969"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="user-profile">
+                        <img src="/images/Avatar.png" alt="User" class="profile-img">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_320_1966)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.50004 6.24992C7.50004 4.86921 8.61933 3.74992 10 3.74992C11.3808 3.74992 12.5 4.86921 12.5 6.24992C12.5 7.63063 11.3808 8.74992 10 8.74992C8.61933 8.74992 7.50004 7.63063 7.50004 6.24992ZM10 2.08325C7.69885 2.08325 5.83337 3.94873 5.83337 6.24992C5.83337 8.55111 7.69885 10.4166 10 10.4166C12.3012 10.4166 14.1667 8.55111 14.1667 6.24992C14.1667 3.94873 12.3012 2.08325 10 2.08325ZM6.66671 11.2499C5.46736 11.2499 4.32937 11.6154 3.47664 12.3372C2.61069 13.0703 2.08337 14.1364 2.08337 15.4166V16.6666C2.08337 17.3569 2.64302 17.9166 3.33337 17.9166H16.6667C17.3571 17.9166 17.9167 17.3569 17.9167 16.6666V15.4166C17.9167 14.1364 17.3894 13.0703 16.5234 12.3372C15.6707 11.6154 14.5327 11.2499 13.3334 11.2499H6.66671ZM3.75004 15.4166C3.75004 14.6257 4.06219 14.0252 4.55347 13.6093C5.05797 13.1823 5.79499 12.9166 6.66671 12.9166H13.3334C14.2051 12.9166 14.9421 13.1823 15.4466 13.6093C15.9379 14.0252 16.25 14.6257 16.25 15.4166V16.2499H3.75004V15.4166Z" fill="#4E5969"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_320_1966">
+                                        <rect width="20" height="20" fill="white"/>
+                                        </clipPath>
+                                        </defs>
+                                    </svg>
+                                    Tài khoản
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg class="logout-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 17.625C14.9264 19.4769 13.3831 21.0494 11.3156 20.9988C10.8346 20.987 10.2401 20.8194 9.05112 20.484C6.18961 19.6768 3.70555 18.3203 3.10956 15.2815C3 14.723 3 14.0944 3 12.8373L3 11.1627C3 9.90561 3 9.27705 3.10956 8.71846C3.70555 5.67965 6.18961 4.32316 9.05112 3.51603C10.2401 3.18064 10.8346 3.01295 11.3156 3.00119C13.3831 2.95061 14.9264 4.52307 15 6.37501" stroke="#4E5969" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M21 12H10M21 12C21 11.2998 19.0057 9.99153 18.5 9.5M21 12C21 12.7002 19.0057 14.0085 18.5 14.5" stroke="#4E5969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb-nav">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Quản lý danh mục</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Ngành hàng</a></li>
+                </ol>
+            </nav>
+            
+            <!-- Content Body -->
+            <div class="content-body">
+                <!-- Filters -->
+                <div class="filters-section">
+                    <div class="d-flex flex-wrap gap-3 align-items-center justify-content-center">
+                        <div class="ar-filter">
+                            <label class="form-label">Mã</label>
+                            <input type="text" class="form-control" placeholder="0010"/>
+                        </div>
+                        <div class="ar-filter">
+                            <label class="form-label">Tên</label>
+                            <input type="text" class="form-control" placeholder="Máy bơm nước dân dụng"/>
+                        </div>
+                    </div>
+                    <div class="filters-btn d-flex gap-3 justify-content-center mt-3">
+                        <button class="btn filter-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.5 5.5L18.8803 15.5251C18.7219 18.0864 18.6428 19.3671 18.0008 20.2879C17.6833 20.7431 17.2747 21.1273 16.8007 21.416C15.8421 22 14.559 22 11.9927 22C9.42312 22 8.1383 22 7.17905 21.4149C6.7048 21.1257 6.296 20.7408 5.97868 20.2848C5.33688 19.3626 5.25945 18.0801 5.10461 15.5152L4.5 5.5" stroke="#4E5969" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M3 5.5H21M16.0557 5.5L15.3731 4.09173C14.9196 3.15626 14.6928 2.68852 14.3017 2.39681C14.215 2.3321 14.1231 2.27454 14.027 2.2247C13.5939 2 13.0741 2 12.0345 2C10.9688 2 10.436 2 9.99568 2.23412C9.8981 2.28601 9.80498 2.3459 9.71729 2.41317C9.32164 2.7167 9.10063 3.20155 8.65861 4.17126L8.05292 5.5" stroke="#4E5969" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M9.5 16.5L9.5 10.5" stroke="#4E5969" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14.5 16.5L14.5 10.5" stroke="#4E5969" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            Xoá bộ lọc
+                        </button>
+                        <button class="btn filter-btn filter-btn-primary">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11C21 13.4013 20.1536 15.6049 18.7429 17.3287L23 21.5858L21.5858 23L17.3287 18.7429C15.6049 20.1536 13.4013 21 11 21C5.47715 21 1 16.5228 1 11ZM11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3Z" fill="#FFFFFF"/>
+                            </svg>
+                            Tìm kiếm
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <div class="ms-auto d-flex gap-2">
+                        <button class="btn action-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="12" cy="5" rx="8" ry="3" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M20 12C20 13.6569 16.4183 15 12 15C7.58172 15 4 13.6569 4 12" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M11 11.6892C9.91806 11.6386 8.90321 11.507 8 11.311" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M11 18.6892C9.91806 18.6386 8.90321 18.507 8 18.311" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M20 5L20 19C20 20.6569 16.4183 22 12 22C7.58172 22 4 20.6569 4 19L4 5" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+
+                            Đồng bộ dữ liệu từ Database
+                        </button>
+                        <button class="btn action-btn">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.41667 6.67469V0.458496H6.58333V6.67531L8.23356 5.02508L9.05852 5.85004L6.00031 8.90825L2.9421 5.85004L3.76706 5.02508L5.41667 6.67469ZM1.91667 10.3752V9.2085H0.75V11.5418H11.25V9.2085H10.0833V10.3752H1.91667Z" fill="#4E5969"/>
+                            </svg>
+                            Xuất Excel
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Data Table Container -->
+                <div class="table-container empty">
+                    <div class="table-wrapper">
+                        <table class="table custom-table">
+                            <thead>
+                                <tr>
+                                    <th class="sort">STT</th>
+                                    <th class="sort">Mã</th>
+                                    <th class="sort">Tên</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="empty-data text-center">
+                            <img src="/images/Empty.png" alt="Empty">
+                            <p>Chưa có dữ liệu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
