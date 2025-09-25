@@ -448,7 +448,7 @@ body {
   border-radius: 0;
   padding: 5px 12px;
   font-size: 14px;
-  color: #86909C;
+  color: #1a1a1a;
   background-color: #F2F3F5;
   height: 35px;
   min-width: 200px;
@@ -456,6 +456,10 @@ body {
 .filters-section .form-control::placeholder {
   color: #86909C;
   font-size: 14px;
+}
+.filters-section .form-control.date-from-to {
+  background: url(/icon/calendar.svg) no-repeat center right 5px #F2F3F5;
+  padding-right: 30px;
 }
 .filters-section .filters-btn button svg {
   width: 16px;
@@ -514,6 +518,17 @@ body {
 .action-buttons .action-btn-primary {
   background-color: #165DFF;
   color: #fff;
+}
+.action-buttons .ticket-list li {
+  font-size: 14px;
+  padding: 3px 10px;
+  list-style: none;
+  background: #F2F3F5;
+  font-weight: 500;
+}
+.action-buttons .ticket-list li.active {
+  background-color: #E8F3FF;
+  color: #165DFF;
 }
 .table-container {
   background: white;
@@ -577,6 +592,12 @@ body {
   color: #1D2129;
   border: none;
 }
+.custom-table tbody td.priority li.urgent::marker {
+  color: red;
+}
+.custom-table tbody td.priority li.green::marker {
+  color: green;
+}
 .custom-table tbody tr:nth-child(2n) td {
   background-color: #F7F8FA;
 }
@@ -608,17 +629,41 @@ body {
   height: 32px;
   border-radius: 2px;
   border: none;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   display: inline;
+  position: relative;
 }
 .custom-table tbody tr .actions-column .table-btn svg {
   height: 16px;
   width: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .custom-table tbody tr .actions-column .table-btn:hover {
   background-color: #F2F3F5;
+}
+.custom-table tbody tr .actions-column .table-btn-box {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
+  z-index: 12;
+  text-align: left;
+  opacity: 0;
+}
+.custom-table tbody tr .actions-column .ticket-setting:hover .table-btn-box {
+  opacity: 1;
+}
+.custom-table tbody tr .actions-column .table-btn-box p {
+  margin: 0;
+  padding: 10px 0;
 }
 .pagination-container {
   position: absolute;
@@ -896,6 +941,110 @@ body {
   color: white;
 }
 
+.ticket-modal-custom .modal-header {
+  justify-content: center;
+  position: relative;
+}
+
+.ticket-modal-custom .modal-header .btn-close {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.ticket-modal-custom form input, .ticket-modal-custom form select {
+  background: #F2F3F5;
+  height: 34px;
+  border: none;
+  border-radius: 0;
+  font-size: 14px;
+}
+.ticket-modal-custom .input-group #ticket-search {
+  position: relative;
+}
+
+.ticket-modal-custom .input-group #ticket-search-icon {
+  height: 34px;
+  border: none;
+  background-color: #F2F3F5;
+  color: #6a6b6c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-modal-custom .ticket-template-list {
+  padding: 7px 20px;
+}
+
+.ticket-modal-custom .ticket-template-list .template-item {
+  font-size: 14px;
+  color: #1D2129;
+  padding: 7px 0;
+  cursor: pointer;
+}
+
+.ticket-modal-custom .ticket-template-list .template-item:hover {
+  color: #007bff;
+}
+
+.ticket-modal-custom .ticket-template-list .template-item input {
+  display: none;
+}
+
+.ticket-modal-custom .ticket-template-list .template-item label {
+  width: 100%;
+}
+
+.ticket-modal-custom .ticket-template-list .template-item input:checked ~ label {
+  background: url(/icon/check.svg) no-repeat center right;
+  background-size: 14px;
+}
+
+.ticket-modal-custom .modal-footer .btn-secondary {
+  background-color: #F2F3F5;
+  color: #4E5969;
+  border: 1px solid #F2F3F5;
+}
+
+.ticket-modal-custom .modal-footer .btn {
+  border-radius: 3px;
+}
+
+.ticket-modal-custom .popup-datepicker {
+  background: url(/icon/calendar.svg) no-repeat center right 5px #F2F3F5;
+  padding-right: 30px;
+}
+
+.ticket-modal-custom .popup-timepicker {
+  background: url(/icon/timeline.svg) no-repeat center right 5px #F2F3F5;
+  padding-right: 30px;
+}
+
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect,
+.daterangepicker select.secondselect {
+    width: 60px;
+    padding: 5px;
+    margin: 0 3px;
+    font-size: 14px;
+}
+
+/* Label cho giờ:phút:giây */
+.daterangepicker .calendar-time select.hourselect::before {
+    content: "Giờ";
+}
+
+/* Căn giữa time picker */
+.daterangepicker .calendar-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
 
 @media (max-width: 768px) {
   .sidebar {

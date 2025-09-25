@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Cấu hình SLA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -223,7 +224,7 @@
                         </div>
                         <div class="ar-filter">
                             <label class="form-label">Khoảng thời gian tiếp nhận</label>
-                            <input type="number" class="form-control" placeholder="Từ ngày - đến ngày"/>
+                            <input type="text" value="" class="form-control date-from-to" placeholder="Từ ngày - đến ngày"/>
                         </div>
                         <div class="ar-filter">
                             <label class="form-label">Trạng thái ticket</label>
@@ -251,7 +252,7 @@
                         </div>
                         <div class="ar-filter">
                             <label class="form-label">Khoảng thời gian xử lý xong/ từ xa</label>
-                            <input type="number" class="form-control" placeholder="Từ ngày - đến ngày"/>
+                            <input type="text" class="form-control date-from-to" placeholder="Từ ngày - đến ngày"/>
                         </div>
                     </div>
                     <div class="filters-btn d-flex gap-3 justify-content-center mt-3">
@@ -275,18 +276,19 @@
                 
                 <!-- Action Buttons -->
                 <div class="action-buttons">
+                    <button class="btn action-btn action-btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Thêm mới
+                    </button>
+                    <ul class="ticket-list ms-auto my-0 p-0 d-flex gap-1">
+                        <li class="active">Tổng số ticket: 50</li>
+                        <li>Miền Bắc: 20</li>
+                        <li>Miền Nam: 25</li>
+                        <li>Của Tôi: 5</li>
+                    </ul>
                     <div class="ms-auto d-flex gap-2">
-                        <button class="btn action-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="12" cy="5" rx="8" ry="3" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
-                                <path d="M20 12C20 13.6569 16.4183 15 12 15C7.58172 15 4 13.6569 4 12" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
-                                <path d="M11 11.6892C9.91806 11.6386 8.90321 11.507 8 11.311" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
-                                <path d="M11 18.6892C9.91806 18.6386 8.90321 18.507 8 18.311" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
-                                <path d="M20 5L20 19C20 20.6569 16.4183 22 12 22C7.58172 22 4 20.6569 4 19L4 5" stroke="#4E5969" stroke-width="1.5" stroke-linejoin="round"/>
-                            </svg>
-
-                            Đồng bộ dữ liệu từ Database
-                        </button>
                         <button class="btn action-btn">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.41667 6.67469V0.458496H6.58333V6.67531L8.23356 5.02508L9.05852 5.85004L6.00031 8.90825L2.9421 5.85004L3.76706 5.02508L5.41667 6.67469ZM1.91667 10.3752V9.2085H0.75V11.5418H11.25V9.2085H10.0833V10.3752H1.91667Z" fill="#4E5969"/>
@@ -303,375 +305,185 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Mã</th>
-                                    <th>Tên</th>
-                                    <th class="sort">Ngành hàng</th>
-                                    <th class="sort">Tình trạng</th>
-                                    <th class="sort">Người tạo</th>
-                                    <th class="sort">Ngày tạo</th>
-                                    <th>Người sửa</th>
-                                    <th>Ngày sửa</th>
+                                    <th>Ngày yêu cầu</th>
+                                    <th>Nguồn</th>
+                                    <th class="sort">Chi nhánh/KTV</th>
+                                    <th class="sort">Trạng thái</th>
+                                    <th class="sort">Mức độ ưu tiên</th>
+                                    <th class="sort">Loại công việc</th>
+                                    <th>Khách hàng</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Nội dung</th>
+                                    <th>Điều khiển bảo hành</th>
                                     <th class="actions-column">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>0001</td>
-                                    <td>Máy bơm nước dân dụng</td>
-                                    <td>Ống nhựa</td>
-                                    <td>Hoạt động</td>
-                                    <td>Đinh Thùy Linh</td>
-                                    <td>2021/12/26<br>08:00:01</td>
-                                    <td>Trần Bảo Hân</td>
-                                    <td>2021/12/26<br>08:00:01</td>
+                                    <td><a href="#">TADT2025092000151</a><br/>20/09/2025 16:41:12</td>
+                                    <td>Webapp</td>
+                                    <td>
+                                        <span class="fw-bold">Chi nhánh:</span> Chánh Hưng - TDH<br/>
+                                        <span class="fw-bold">KTV:</span> NV0000097 | Nguyễn Tiến Bộ<br/>
+                                        <span class="fw-bold">Vùng Miền:</span> Miền Nam
+                                    </td>
+                                    <td>Tiếp nhận thông tin từ khách hàng </td>
+                                    <td class="priority">
+                                        <ul class="m-0">
+                                            <li class="urgent">Gấp</li>
+                                        </ul>
+                                    </td>
+                                    <td>Bảo hành</td>
+                                    <td>Khách hàng</td>
+                                    <td>Sản phẩm</td>
+                                    <td>Nội dung</td>
+                                    <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn">
+                                        <button class="table-btn" title="Đồng bộ">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
+                                        </button>
+                                        <button class="table-btn" title="Xuất biểu mẫu">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
+                                            </svg>
+                                        </button>
+                                        <button class="table-btn ticket-setting">
+                                            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
+                                            </svg>
+                                            <div class="table-btn-box">
+                                                <p>Phân bổ cho KTV</p>
+                                                <p>Cập nhật trạng thái ticket</p>
+                                            </div>
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>0002</td>
-                                    <td>Ống thép mạ kẽm D25</td>
-                                    <td>Vật liệu xây dựng</td>
-                                    <td>Hoạt động</td>
-                                    <td>Nguyễn Văn An</td>
-                                    <td>2022/01/05<br>09:15:22</td>
-                                    <td>Hoàng Lan</td>
-                                    <td>2022/01/05<br>09:45:10</td>
+                                    <td>1</td>
+                                    <td><a href="#">TADT2025092000151</a><br/>20/09/2025 16:41:12</td>
+                                    <td>Webapp</td>
+                                    <td>
+                                        <span class="fw-bold">Chi nhánh:</span> Chánh Hưng - TDH<br/>
+                                        <span class="fw-bold">KTV:</span> NV0000097 | Nguyễn Tiến Bộ<br/>
+                                        <span class="fw-bold">Vùng Miền:</span> Miền Nam
+                                    </td>
+                                    <td>Tiếp nhận thông tin từ khách hàng </td>
+                                    <td class="priority">
+                                        <ul class="m-0">
+                                            <li class="green">Bình thường</li>
+                                        </ul>
+                                    </td>
+                                    <td>Bảo hành</td>
+                                    <td>Khách hàng</td>
+                                    <td>Sản phẩm</td>
+                                    <td>Nội dung</td>
+                                    <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn">
+                                        <button class="table-btn" title="Đồng bộ" id="sync-ticket-data">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
+                                        </button>
+                                        <button class="table-btn" title="Xuất biểu mẫu" data-bs-toggle="modal" data-bs-target="#exportTemplateModal">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
+                                            </svg>
+                                        </button>
+                                        <button class="table-btn ticket-setting">
+                                            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
+                                            </svg>
+                                            <div class="table-btn-box">
+                                                <p data-bs-toggle="modal" data-bs-target="#assignTechnicianModal">Phân bổ cho KTV</p>
+                                                <p>Cập nhật trạng thái ticket</p>
+                                            </div>
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>0003</td>
-                                    <td>Dây điện Cadivi CV 2.5mm</td>
-                                    <td>Điện dân dụng</td>
-                                    <td>Hoạt động</td>
-                                    <td>Phạm Minh Đức</td>
-                                    <td>2022/01/06<br>10:30:11</td>
-                                    <td>Trần Văn Quang</td>
-                                    <td>2022/01/06<br>11:05:41</td>
+                                    <td>1</td>
+                                    <td><a href="#">TADT2025092000151</a><br/>20/09/2025 16:41:12</td>
+                                    <td>Webapp</td>
+                                    <td>
+                                        <span class="fw-bold">Chi nhánh:</span> Chánh Hưng - TDH<br/>
+                                        <span class="fw-bold">KTV:</span> NV0000097 | Nguyễn Tiến Bộ<br/>
+                                        <span class="fw-bold">Vùng Miền:</span> Miền Nam
+                                    </td>
+                                    <td>Tiếp nhận thông tin từ khách hàng </td>
+                                    <td class="priority">
+                                        <ul class="m-0">
+                                            <li class="urgent">Gấp</li>
+                                        </ul>
+                                    </td>
+                                    <td>Bảo hành</td>
+                                    <td>Khách hàng</td>
+                                    <td>Sản phẩm</td>
+                                    <td>Nội dung</td>
+                                    <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn">
+                                        <button class="table-btn" title="Đồng bộ">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
+                                        </button>
+                                        <button class="table-btn" title="Xuất biểu mẫu">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
+                                            </svg>
+                                        </button>
+                                        <button class="table-btn ticket-setting">
+                                            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
+                                            </svg>
+                                            <div class="table-btn-box">
+                                                <p>Phân bổ cho KTV</p>
+                                                <p>Cập nhật trạng thái ticket</p>
+                                            </div>
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>4</td>
-                                    <td>0004</td>
-                                    <td>Bồn nước inox 1000L</td>
-                                    <td>Gia dụng</td>
-                                    <td>Ngưng</td>
-                                    <td>Lê Hồng Nhung</td>
-                                    <td>2022/01/10<br>14:20:00</td>
-                                    <td>Nguyễn Hữu Tài</td>
-                                    <td>2022/01/11<br>09:10:10</td>
+                                    <td>1</td>
+                                    <td><a href="#">TADT2025092000151</a><br/>20/09/2025 16:41:12</td>
+                                    <td>Webapp</td>
+                                    <td>
+                                        <span class="fw-bold">Chi nhánh:</span> Chánh Hưng - TDH<br/>
+                                        <span class="fw-bold">KTV:</span> NV0000097 | Nguyễn Tiến Bộ<br/>
+                                        <span class="fw-bold">Vùng Miền:</span> Miền Nam
+                                    </td>
+                                    <td>Tiếp nhận thông tin từ khách hàng </td>
+                                    <td class="priority">
+                                        <ul class="m-0">
+                                            <li class="urgent">Gấp</li>
+                                        </ul>
+                                    </td>
+                                    <td>Bảo hành</td>
+                                    <td>Khách hàng</td>
+                                    <td>Sản phẩm</td>
+                                    <td>Nội dung</td>
+                                    <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn">
+                                        <button class="table-btn" title="Đồng bộ">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
                                         </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>0005</td>
-                                    <td>Sơn chống rỉ Jotun</td>
-                                    <td>Sơn & Hoá chất</td>
-                                    <td>Hoạt động</td>
-                                    <td>Phan Thảo Vy</td>
-                                    <td>2022/02/02<br>08:00:30</td>
-                                    <td>Lý Thanh Sơn</td>
-                                    <td>2022/02/02<br>08:45:55</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
+                                        <button class="table-btn" title="Xuất biểu mẫu">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
                                             </svg>
                                         </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>0006</td>
-                                    <td>Van bi inox DN50</td>
-                                    <td>Ống nhựa</td>
-                                    <td>Hoạt động</td>
-                                    <td>Đào Ngọc Mai</td>
-                                    <td>2022/02/15<br>10:15:12</td>
-                                    <td>Nguyễn Văn Hải</td>
-                                    <td>2022/02/15<br>11:05:22</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
+                                        <button class="table-btn ticket-setting">
+                                            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
                                             </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>0007</td>
-                                    <td>Kính cường lực 10mm</td>
-                                    <td>Xây dựng</td>
-                                    <td>Hoạt động</td>
-                                    <td>Hoàng Bích Ngọc</td>
-                                    <td>2022/03/01<br>08:45:21</td>
-                                    <td>Trần Văn Khoa</td>
-                                    <td>2022/03/01<br>09:15:41</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>0008</td>
-                                    <td>Dây cáp quang 24FO</td>
-                                    <td>Viễn thông</td>
-                                    <td>Hoạt động</td>
-                                    <td>Nguyễn Thị Thu</td>
-                                    <td>2022/03/05<br>10:10:01</td>
-                                    <td>Đỗ Hữu Phúc</td>
-                                    <td>2022/03/05<br>10:55:09</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>0009</td>
-                                    <td>Máy hàn điện tử Jasic ARC200</td>
-                                    <td>Công cụ</td>
-                                    <td>Ngưng</td>
-                                    <td>Võ Thị Kim</td>
-                                    <td>2022/03/15<br>09:30:00</td>
-                                    <td>Nguyễn Thành Công</td>
-                                    <td>2022/03/15<br>10:05:15</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>0010</td>
-                                    <td>Tủ điện 3 pha 24 cực</td>
-                                    <td>Điện công nghiệp</td>
-                                    <td>Hoạt động</td>
-                                    <td>Trịnh Hoài Nam</td>
-                                    <td>2022/04/01<br>08:00:00</td>
-                                    <td>Nguyễn Văn Phong</td>
-                                    <td>2022/04/01<br>08:45:40</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>11</td>
-                                    <td>0011</td>
-                                    <td>Bơm nước ly tâm 2HP</td>
-                                    <td>Máy móc</td>
-                                    <td>Hoạt động</td>
-                                    <td>Nguyễn Hoài Thương</td>
-                                    <td>2022/04/15<br>09:30:30</td>
-                                    <td>Phan Tuấn Anh</td>
-                                    <td>2022/04/15<br>10:15:11</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>0012</td>
-                                    <td>Đèn LED ốp trần 18W</td>
-                                    <td>Chiếu sáng</td>
-                                    <td>Hoạt động</td>
-                                    <td>Lê Trọng Tín</td>
-                                    <td>2022/05/01<br>11:20:25</td>
-                                    <td>Đặng Minh Phú</td>
-                                    <td>2022/05/01<br>11:55:31</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>13</td>
-                                    <td>0013</td>
-                                    <td>Thép hộp vuông 50x50x2ly</td>
-                                    <td>Vật liệu xây dựng</td>
-                                    <td>Ngưng</td>
-                                    <td>Nguyễn Quốc Hưng</td>
-                                    <td>2022/05/10<br>08:05:05</td>
-                                    <td>Đỗ Thanh Hà</td>
-                                    <td>2022/05/10<br>09:00:10</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>14</td>
-                                    <td>0014</td>
-                                    <td>Bảng điện Panasonic 12 cực</td>
-                                    <td>Điện dân dụng</td>
-                                    <td>Hoạt động</td>
-                                    <td>Phan Mỹ Duyên</td>
-                                    <td>2022/05/20<br>14:30:45</td>
-                                    <td>Nguyễn Hữu Thắng</td>
-                                    <td>2022/05/20<br>15:10:00</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                    <td>0015</td>
-                                    <td>Tấm panel cách nhiệt PU</td>
-                                    <td>Cách nhiệt</td>
-                                    <td>Hoạt động</td>
-                                    <td>Hoàng Ngọc Minh</td>
-                                    <td>2022/06/01<br>08:10:10</td>
-                                    <td>Nguyễn Văn Đạt</td>
-                                    <td>2022/06/01<br>08:45:40</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>16</td>
-                                    <td>0016</td>
-                                    <td>Lưới thép B40 mạ kẽm</td>
-                                    <td>Vật liệu xây dựng</td>
-                                    <td>Hoạt động</td>
-                                    <td>Đinh Phương Thảo</td>
-                                    <td>2022/06/15<br>09:20:25</td>
-                                    <td>Nguyễn Thị Mai</td>
-                                    <td>2022/06/15<br>09:55:35</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>17</td>
-                                    <td>0017</td>
-                                    <td>Dây cáp điện 3 pha 4x16mm</td>
-                                    <td>Điện công nghiệp</td>
-                                    <td>Ngưng</td>
-                                    <td>Trần Thu Hằng</td>
-                                    <td>2022/07/01<br>08:05:55</td>
-                                    <td>Lê Minh Trí</td>
-                                    <td>2022/07/01<br>08:45:30</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>18</td>
-                                    <td>0018</td>
-                                    <td>Ống nhựa PPR chịu nhiệt</td>
-                                    <td>Ống nhựa</td>
-                                    <td>Hoạt động</td>
-                                    <td>Nguyễn Văn Khánh</td>
-                                    <td>2022/07/10<br>09:30:11</td>
-                                    <td>Phạm Quang Huy</td>
-                                    <td>2022/07/10<br>10:05:55</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>19</td>
-                                    <td>0019</td>
-                                    <td>Máy khoan bê tông Bosch GBH2</td>
-                                    <td>Công cụ</td>
-                                    <td>Hoạt động</td>
-                                    <td>Phan Hải Đăng</td>
-                                    <td>2022/08/01<br>08:15:25</td>
-                                    <td>Nguyễn Thanh Bình</td>
-                                    <td>2022/08/01<br>09:00:40</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>20</td>
-                                    <td>0020</td>
-                                    <td>Máy cắt gạch cầm tay</td>
-                                    <td>Dụng cụ</td>
-                                    <td>Hoạt động</td>
-                                    <td>Lưu Hữu Nghĩa</td>
-                                    <td>2022/08/15<br>10:20:20</td>
-                                    <td>Trần Thanh Tùng</td>
-                                    <td>2022/08/15<br>11:05:35</td>
-                                    <td class="actions-column">
-                                        <button class="table-btn">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15011 11.4731C4.91449 7.01382 8.18019 4.5 12 4.5C15.8199 4.5 19.0856 7.01382 21.85 11.4731L22.1766 12L21.85 12.5269C19.0856 16.9862 15.8199 19.5 12 19.5C8.18019 19.5 4.91449 16.9862 2.15011 12.5269L1.82349 12L2.15011 11.4731ZM4.18539 12C6.69226 15.8328 9.31259 17.5 12 17.5C14.6875 17.5 17.3078 15.8328 19.8147 12C17.3078 8.16717 14.6875 6.5 12 6.5C9.31259 6.5 6.69226 8.16717 4.18539 12ZM12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5C12.8285 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8285 10.5 12 10.5ZM8.50005 12C8.50005 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.50005 13.933 8.50005 12Z" fill="#86909C"/>
-                                            </svg>
+                                            <div class="table-btn-box">
+                                                <p>Phân bổ cho KTV</p>
+                                                <p>Cập nhật trạng thái ticket</p>
+                                            </div>
                                         </button>
                                     </td>
                                 </tr>
@@ -765,9 +577,153 @@
             </div>
         </div>
     </div>
+
+    <!-- POPUP -->
+    <!-- Export Template Modal -->
+    <div class="modal fade" id="exportTemplateModal" tabindex="-1" aria-labelledby="exportTemplateModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ticket-modal-custom">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exportTemplateModalLabel">Xuất biểu mẫu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <form action="" id="ticket-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm biểu mẫu">
+                                <button class="btn btn-outline-secondary" type="button" id="ticket-search-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M13 13l-3-3" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="ticket-template-list">
+                        <div class="form-check template-item">
+                            <input class="form-check-input" type="checkbox" value="template1" id="template1" checked>
+                            <label class="form-check-label" for="template1">
+                                Biên bản BB5B
+                            </label>
+                        </div>
+                        <div class="form-check template-item">
+                            <input class="form-check-input" type="checkbox" value="template2" id="template2">
+                            <label class="form-check-label" for="template2">
+                                Biên bản BB5B Ver 2
+                            </label>
+                        </div>
+                        <div class="form-check template-item">
+                            <input class="form-check-input" type="checkbox" value="template3" id="template3">
+                            <label class="form-check-label" for="template3">
+                                Biên bản hàng trả về
+                            </label>
+                        </div>
+                        <div class="form-check template-item">
+                            <input class="form-check-input" type="checkbox" value="template4" id="template4">
+                            <label class="form-check-label" for="template4">
+                                Biểu mẫu thu mua đề xế
+                            </label>
+                        </div>
+                        <div class="form-check template-item">
+                            <input class="form-check-input" type="checkbox" value="template5" id="template5">
+                            <label class="form-check-label" for="template5">
+                                Biểu mẫu các đối sản phẩm
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="exportSubmitBtn">Xuất biểu mẫu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assign Technician Modal -->
+    <div class="modal fade" id="assignTechnicianModal" tabindex="-1" aria-labelledby="assignTechnicianModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ticket-modal-custom">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="assignTechnicianModalLabel">Phân bổ cho kỹ thuật viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="unitInput" class="form-label">
+                                <span class="text-danger">*</span> Đơn vị
+                            </label>
+                            <input type="text" class="form-control" id="unitInput" placeholder="Nhập đơn vị">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="appointmentDate" class="form-label">
+                                        <span class="text-danger">*</span> Ngày khách hẹn
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control popup-datepicker" id="appointmentDate" placeholder="dd/mm/yy" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="appointmentTime" class="form-label">
+                                        <span class="text-danger">*</span> Giờ khách hẹn
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control popup-timepicker" id="appointmentTime" placeholder="hh:mm:ss" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="technicianSelect" class="form-label">Kỹ thuật viên</label>
+                            <select class="form-select" id="technicianSelect">
+                                <option value="">-- Chọn --</option>
+                                <option value="tech1">Nguyễn Văn A</option>
+                                <option value="tech2">Trần Thị B</option>
+                                <option value="tech3">Lê Văn C</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="assignSubmitBtn">Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 bg-transparent">
+                <div class="modal-body text-center">
+                    <div class="loading-container">
+                        <div class="spinner-border text-white mb-3" role="status" style="width: 2rem; height: 2rem;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h5 class="text-white fs-6 fw-normal">Đang đồng bộ dữ liệu</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END POPUP -->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
