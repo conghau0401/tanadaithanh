@@ -21,6 +21,11 @@ $(document).ready(function () {
     $('.ar-pagination-btn').on('click', function () {
         $(this).next('.ar-pagination-box').toggleClass('show');
     });
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('.ar-pagination-btn, .ar-pagination-box').length) {
+            $('.ar-pagination-box').removeClass('show');
+        }
+    });
     $(".sync-ticket-data").on("click", () => {
         $("#loadingModal").modal("show")
         setTimeout(() => {

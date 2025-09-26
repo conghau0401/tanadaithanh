@@ -559,8 +559,16 @@ body {
 
 .action-buttons {
   display: flex;
-  align-items: center;
   margin-bottom: 20px;
+  gap: 10px;
+}
+
+.action-buttons .action-buttons-left {
+  width: 20%;
+}
+
+.action-buttons .action-buttons-right {
+  width: 80%;
 }
 
 .action-buttons .btn {
@@ -609,6 +617,7 @@ body {
   list-style: none;
   background: #F2F3F5;
   font-weight: 500;
+  height: 27px;
 }
 
 .action-buttons .ticket-list li.active {
