@@ -1,15 +1,15 @@
-$(document).ready(function() {
-    $('#menuToggle').on('click', function() {
+$(document).ready(function () {
+    $('#menuToggle').on('click', function () {
         const sidebar = $('#sidebar');
         const mainContent = $('#mainContent');
         const paginationContainer = $('.pagination-container');
         const menuIcon = $('.menu-icon');
         const closeIcon = $('.close-icon');
-        
+
         sidebar.toggleClass('collapsed');
         mainContent.toggleClass('expanded');
         paginationContainer.toggleClass('expanded');
-        
+
         if (sidebar.hasClass('collapsed')) {
             menuIcon.addClass('d-none');
             closeIcon.removeClass('d-none');
@@ -18,16 +18,15 @@ $(document).ready(function() {
             closeIcon.addClass('d-none');
         }
     });
-    $('.ar-pagination-btn').on('click', function() {
+    $('.ar-pagination-btn').on('click', function () {
         $(this).next('.ar-pagination-box').toggleClass('show');
     });
-    $("#sync-ticket-data").on("click", () => {
+    $(".sync-ticket-data").on("click", () => {
         $("#loadingModal").modal("show")
         setTimeout(() => {
             $("#loadingModal").modal("hide")
         }, 3000);
     })
-    // datepicker
     const localeVN = {
         format: 'DD/MM/YYYY',
         separator: ' - ',
@@ -60,16 +59,30 @@ $(document).ready(function() {
         singleDatePicker: true,
         timePicker: true,
         timePicker24Hour: true,
-        timePickerIncrement: 1, // Bước nhảy 1 phút (cho phút)
-        timePickerSeconds: true, // Bật hiển thị giây
+        timePickerIncrement: 1,
+        timePickerSeconds: true,
         locale: {
-            format: 'HH:mm:ss', // Thêm ss cho giây
+            format: 'HH:mm:ss',
             applyLabel: 'Chọn',
             cancelLabel: 'Hủy'
         },
         startDate: moment().format('HH:mm:ss')
-    }).on('show.daterangepicker', function(ev, picker) {
-        // Ẩn phần calendar
+    }).on('show.daterangepicker', function (ev, picker) {
         picker.container.find('.calendar-table').hide();
     });
+
+    // const menu = document.querySelector(".table-btn-box");
+    // document.body.appendChild(menu);
+    // document.addEventListener("click", (e) => {
+    //     const btn = e.target.closest(".ticket-setting");
+    //     if (btn) {
+    //     e.stopPropagation();
+    //     const rect = btn.getBoundingClientRect();
+    //     menu.style.top = rect.bottom + "px";
+    //     menu.style.left = (rect.left - 160) + "px";
+    //     menu.style.display = "block";
+    //     } else {
+    //     menu.style.display = "none";
+    //     }
+    // });
 });

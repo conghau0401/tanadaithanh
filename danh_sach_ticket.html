@@ -6,7 +6,7 @@
     <title>Dashboard - Cấu hình SLA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <!-- Main Container -->
@@ -340,12 +340,12 @@
                                     <td>Nội dung</td>
                                     <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn" title="Đồng bộ">
+                                        <button class="table-btn sync-ticket-data" title="Đồng bộ">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
                                         </button>
-                                        <button class="table-btn" title="Xuất biểu mẫu">
+                                        <button class="table-btn" title="Xuất biểu mẫu" data-bs-toggle="modal" data-bs-target="#exportTemplateModal">
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
                                             </svg>
@@ -355,7 +355,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
                                             </svg>
                                             <div class="table-btn-box">
-                                                <p>Phân bổ cho KTV</p>
+                                                <p data-bs-toggle="modal" data-bs-target="#assignTechnicianModal">Phân bổ cho KTV</p>
                                                 <p>Cập nhật trạng thái ticket</p>
                                             </div>
                                         </button>
@@ -382,7 +382,7 @@
                                     <td>Nội dung</td>
                                     <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn" title="Đồng bộ" id="sync-ticket-data">
+                                        <button class="table-btn sync-ticket-data" title="Đồng bộ">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
@@ -424,12 +424,12 @@
                                     <td>Nội dung</td>
                                     <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn" title="Đồng bộ">
+                                        <button class="table-btn sync-ticket-data" title="Đồng bộ">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
                                         </button>
-                                        <button class="table-btn" title="Xuất biểu mẫu">
+                                        <button class="table-btn" title="Xuất biểu mẫu" data-bs-toggle="modal" data-bs-target="#exportTemplateModal">
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
                                             </svg>
@@ -439,7 +439,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
                                             </svg>
                                             <div class="table-btn-box">
-                                                <p>Phân bổ cho KTV</p>
+                                                <p data-bs-toggle="modal" data-bs-target="#assignTechnicianModal">Phân bổ cho KTV</p>
                                                 <p>Cập nhật trạng thái ticket</p>
                                             </div>
                                         </button>
@@ -466,12 +466,12 @@
                                     <td>Nội dung</td>
                                     <td>Điều kiên bảo hành</td>
                                     <td class="actions-column">
-                                        <button class="table-btn" title="Đồng bộ">
+                                        <button class="table-btn sync-ticket-data" title="Đồng bộ">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
                                             </svg>
                                         </button>
-                                        <button class="table-btn" title="Xuất biểu mẫu">
+                                        <button class="table-btn" title="Xuất biểu mẫu" data-bs-toggle="modal" data-bs-target="#exportTemplateModal">
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
                                             </svg>
@@ -481,7 +481,91 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
                                             </svg>
                                             <div class="table-btn-box">
-                                                <p>Phân bổ cho KTV</p>
+                                                <p data-bs-toggle="modal" data-bs-target="#assignTechnicianModal">Phân bổ cho KTV</p>
+                                                <p>Cập nhật trạng thái ticket</p>
+                                            </div>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href="#">TADT2025092000151</a><br/>20/09/2025 16:41:12</td>
+                                    <td>Webapp</td>
+                                    <td>
+                                        <span class="fw-bold">Chi nhánh:</span> Chánh Hưng - TDH<br/>
+                                        <span class="fw-bold">KTV:</span> NV0000097 | Nguyễn Tiến Bộ<br/>
+                                        <span class="fw-bold">Vùng Miền:</span> Miền Nam
+                                    </td>
+                                    <td>Tiếp nhận thông tin từ khách hàng </td>
+                                    <td class="priority">
+                                        <ul class="m-0">
+                                            <li class="urgent">Gấp</li>
+                                        </ul>
+                                    </td>
+                                    <td>Bảo hành</td>
+                                    <td>Khách hàng</td>
+                                    <td>Sản phẩm</td>
+                                    <td>Nội dung</td>
+                                    <td>Điều kiên bảo hành</td>
+                                    <td class="actions-column">
+                                        <button class="table-btn sync-ticket-data" title="Đồng bộ">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
+                                            </svg>
+                                        </button>
+                                        <button class="table-btn" title="Xuất biểu mẫu" data-bs-toggle="modal" data-bs-target="#exportTemplateModal">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
+                                            </svg>
+                                        </button>
+                                        <button class="table-btn ticket-setting">
+                                            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
+                                            </svg>
+                                            <div class="table-btn-box">
+                                                <p data-bs-toggle="modal" data-bs-target="#assignTechnicianModal">Phân bổ cho KTV</p>
+                                                <p>Cập nhật trạng thái ticket</p>
+                                            </div>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href="#">TADT2025092000151</a><br/>20/09/2025 16:41:12</td>
+                                    <td>Webapp</td>
+                                    <td>
+                                        <span class="fw-bold">Chi nhánh:</span> Chánh Hưng - TDH<br/>
+                                        <span class="fw-bold">KTV:</span> NV0000097 | Nguyễn Tiến Bộ<br/>
+                                        <span class="fw-bold">Vùng Miền:</span> Miền Nam
+                                    </td>
+                                    <td>Tiếp nhận thông tin từ khách hàng </td>
+                                    <td class="priority">
+                                        <ul class="m-0">
+                                            <li class="urgent">Gấp</li>
+                                        </ul>
+                                    </td>
+                                    <td>Bảo hành</td>
+                                    <td>Khách hàng</td>
+                                    <td>Sản phẩm</td>
+                                    <td>Nội dung</td>
+                                    <td>Điều kiên bảo hành</td>
+                                    <td class="actions-column">
+                                        <button class="table-btn sync-ticket-data" title="Đồng bộ">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.69816 6.69538C7.81664 5.57691 9.19776 4.8867 10.6424 4.62205L10.282 2.65479C8.45093 2.99023 6.69852 3.8666 5.28395 5.28117C1.57397 8.99115 1.57397 15.0062 5.28395 18.7162L3.57684 20.4233H8.40527V15.5949L6.69816 17.302C3.76923 14.3731 3.76923 9.62431 6.69816 6.69538ZM20.4243 3.57583H15.5959V8.40426L17.303 6.69715C20.2319 9.62609 20.2319 14.3748 17.303 17.3038C16.1845 18.4222 14.8034 19.1124 13.3587 19.3771L13.7191 21.3444C15.5502 21.0089 17.3026 20.1325 18.7172 18.718C22.4272 15.008 22.4272 8.99292 18.7172 5.28294L20.4243 3.57583Z" fill="#86909C"/>
+                                            </svg>
+                                        </button>
+                                        <button class="table-btn" title="Xuất biểu mẫu" data-bs-toggle="modal" data-bs-target="#exportTemplateModal">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00035 0.508301L9.05856 3.56651L8.2336 4.39147L6.58399 2.74186L6.58399 8.66638H5.41733L5.41733 2.74124L3.7671 4.39147L2.94214 3.56651L6.00035 0.508301ZM1.91667 10.3749V9.20826H0.75V11.5416H11.25V9.20826H10.0833V10.3749H1.91667Z" fill="#86909C"/>
+                                            </svg>
+                                        </button>
+                                        <button class="table-btn ticket-setting">
+                                            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 0.5H0.75V3H3.25V0.5ZM3.25 6.75H0.75V9.25H3.25V6.75ZM3.25 13H0.75V15.5H3.25V13Z" fill="#86909C"/>
+                                            </svg>
+                                            <div class="table-btn-box">
+                                                <p data-bs-toggle="modal" data-bs-target="#assignTechnicianModal">Phân bổ cho KTV</p>
                                                 <p>Cập nhật trạng thái ticket</p>
                                             </div>
                                         </button>
@@ -724,6 +808,6 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
