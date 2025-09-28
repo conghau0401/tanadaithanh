@@ -76,18 +76,32 @@ $(document).ready(function () {
         picker.container.find('.calendar-table').hide();
     });
 
-    // const menu = document.querySelector(".table-btn-box");
-    // document.body.appendChild(menu);
-    // document.addEventListener("click", (e) => {
-    //     const btn = e.target.closest(".ticket-setting");
-    //     if (btn) {
-    //     e.stopPropagation();
-    //     const rect = btn.getBoundingClientRect();
-    //     menu.style.top = rect.bottom + "px";
-    //     menu.style.left = (rect.left - 160) + "px";
-    //     menu.style.display = "block";
-    //     } else {
-    //     menu.style.display = "none";
-    //     }
-    // });
+    if ($("#ticket-table").length) {
+        const table = document.querySelector("#ticket-table");
+        table.addEventListener("click", function (e) {
+            const btn = e.target.closest(".ticket-setting");
+            if (!btn) return;
+            const existingBox = document.querySelector(".table-btn-box.active");
+            if (existingBox) {
+            existingBox.classList.remove("active");
+            existingBox.remove();
+            }
+            const box = btn.querySelector(".table-btn-box").cloneNode(true);
+            box.classList.add("active");
+            const rect = btn.getBoundingClientRect();
+            box.style.position = "absolute";
+            box.style.top = rect.bottom + window.scrollY + "px";
+            box.style.left = rect.right - 200 + "px";
+            box.style.zIndex = 999;
+            box.style.display = "block";
+            document.body.appendChild(box);
+            function handleOutsideClick(ev) {
+            if (!box.contains(ev.target) && !btn.contains(ev.target)) {
+                box.remove();
+                document.removeEventListener("click", handleOutsideClick);
+            }
+            }
+            document.addEventListener("click", handleOutsideClick);
+        });
+    }
 });
