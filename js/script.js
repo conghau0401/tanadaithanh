@@ -49,32 +49,42 @@ $(document).ready(function () {
         ],
         firstDay: 1,
     };
-    $('.date-from-to').daterangepicker({
-        locale: localeVN,
-        startDate: moment(),
-        "autoApply": false,
-        endDate: moment().add(1, 'days'),
-    });
-    $('#appointmentDate').daterangepicker({
-        singleDatePicker: true,
-        locale: localeVN,
-        "autoApply": false,
-    });
-    $('#appointmentTime').daterangepicker({
-        singleDatePicker: true,
-        timePicker: true,
-        timePicker24Hour: true,
-        timePickerIncrement: 1,
-        timePickerSeconds: true,
-        locale: {
-            format: 'HH:mm:ss',
-            applyLabel: 'Chọn',
-            cancelLabel: 'Hủy'
-        },
-        startDate: moment().format('HH:mm:ss')
-    }).on('show.daterangepicker', function (ev, picker) {
-        picker.container.find('.calendar-table').hide();
-    });
+    if ($(".date-from-to").length) {
+        $('.date-from-to').daterangepicker({
+            locale: localeVN,
+            startDate: moment(),
+            "autoApply": false,
+            endDate: moment().add(1, 'days'),
+        });
+    }
+    if ($("#appointmentDate").length) {
+        $('#appointmentDate').daterangepicker({
+            singleDatePicker: true,
+            locale: localeVN,
+            "autoApply": false,
+        });
+    }
+    if ($("#appointmentTime").length) {
+        $('#appointmentTime').daterangepicker({
+            singleDatePicker: true,
+            timePicker: true,
+            timePicker24Hour: true,
+            timePickerIncrement: 1,
+            timePickerSeconds: true,
+            locale: {
+                format: 'HH:mm:ss',
+                applyLabel: 'Chọn',
+                cancelLabel: 'Hủy'
+            },
+            startDate: moment().format('HH:mm:ss')
+        }).on('show.daterangepicker', function (ev, picker) {
+            picker.container.find('.calendar-table').hide();
+        });
+    }
+
+    $("#sidebar").find("li.has-sub").on('click', function() {
+        $(this).find("ul.sub-nav-item").slideToggle();
+    })
 
     if ($("#ticket-table").length) {
         const table = document.querySelector("#ticket-table");
