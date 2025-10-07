@@ -1,14 +1,14 @@
 $(document).ready(function () {
     $('#passwordToggle').click(function () {
         const passwordField = $('#password');
-        const passwordIcon = $('#passwordIcon');
+        const passwordIcon = $('.passwordIcon');
 
         if (passwordField.attr('type') === 'password') {
             passwordField.attr('type', 'text');
-            passwordIcon.removeClass('bi-eye').addClass('bi-eye-slash');
+            passwordIcon.attr("src", "/icon/eye-slash.svg");
         } else {
             passwordField.attr('type', 'password');
-            passwordIcon.removeClass('bi-eye-slash').addClass('bi-eye');
+            passwordIcon.attr("src", "/icon/eye.svg");
         }
     });
 
