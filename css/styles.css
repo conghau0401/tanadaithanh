@@ -1318,6 +1318,11 @@ body {
   justify-content: center;
 }
 
+.ticket-modal-custom .input-group #ticket-search-icon img {
+  width: 16px;
+  height: auto;
+}
+
 .ticket-modal-custom .ticket-template-list {
   padding: 7px 20px;
 }
